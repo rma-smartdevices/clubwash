@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Club Wash</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      html,
+      body {
+        background-color: #444;
+
+        margin: 0;
+        padding: 0;
+
+        width: 100%;
+        min-height: 100svh;
+      }
+
+      .bg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        min-height: 102svh;
+        width: 100%;
+      }
+
+      header {
+        color: #d9fb5f;
+
+        padding: 2em 1em 1em;
+
+        text-align: center;
+
+        width: 100%;
+      }
+
+      h1 {
+        margin: 0.2em 0;
+
+        font-size: 2em;
+
+        padding: 0.2em;
+
+        border-radius: 50em;
+      }
+
+      p {
+        color: white;
+
+        margin: 0.5em 0 2em 0;
+
+        padding: 0.1em;
+
+        display: inline-block;
+      }
+
+      .links {
+        width: 90%;
+        max-width: 300px;
+
+        margin: 3em 0 0 0;
+      }
+
+      .link {
+        position: relative;
+
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        margin: 0.5em 0 1.5em 0;
+
+        padding: 1em;
+
+        border-radius: 14px;
+
+        text-decoration: none;
+        color: #222;
+
+        font-weight: bold;
+
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          background 0.25s ease;
+
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .link:hover {
+        transform: translateY(-2px);
+
+        background: rgba(255, 255, 255, 1);
+
+        box-shadow:
+          0 10px 28px rgba(0, 170, 255, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      }
+
+      .link:active {
+        transform: scale(0.98);
+      }
+
+      .link-logo {
+        margin-right: 1em;
+
+        width: 24px;
+        height: 24px;
+
+        border-radius: 4px;
+      }
+
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+
+        border-radius: 50%;
+
+        margin-bottom: 1em;
+
+        object-fit: cover;
+
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      }
+
+      img.profile-pic {
+        width: 170px;
+        height: 170px;
+      }
+
+      footer {
+        min-width: 100svw;
+
+        padding: 0.5em 0 0 0;
+
+        background-color: #333;
+
+        margin-top: auto;
+
+        font-size: 14px;
+
+        text-align: center;
+
+        border-radius: 45em 45em 0 0;
+      }
+
+      footer span {
+        background-color: #35393c;
+
+        color: #4b96bd;
+
+        font-weight: bold;
+      }
+
+      #copyright {
+        color: ghostwhite;
+
+        padding: 0.2em;
+
+        margin: 1em 0;
+      }
+
+      /* WATER DROPLETS */
+
+      .droplet {
+        position: fixed;
+
+        width: 10px;
+        height: 10px;
+
+        border-radius: 50%;
+
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(180, 235, 255, 0.95) 20%,
+          rgba(70, 190, 255, 0.9) 55%,
+          rgba(0, 140, 255, 0.75) 100%
+        );
+
+        pointer-events: none;
+
+        opacity: 0;
+
+        border: 1.5px solid rgba(0, 0, 0, 0.45);
+
+        box-shadow:
+          0 0 6px rgba(0, 170, 255, 0.25),
+          inset 0 1px 2px rgba(255, 255, 255, 0.9);
+
+        animation: splashDrop 900ms ease-out forwards;
+
+        filter: saturate(1.15) contrast(1.05);
+
+        z-index: 9999;
+      }
+
+      @keyframes splashDrop {
+        0% {
+          transform: translate(0, 0) scale(0.25);
+
+          opacity: 1;
+        }
+
+        30% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translate(var(--x), var(--y)) scale(1);
+
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.4em;
+        }
+
+        .word {
+          font-size: 1.2em;
+        }
+
+        .profile-pic {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg">
+      <header>
+        <img class="profile-pic" src="/img/logo.png" alt="Profile Picture" />
+
+        <h1>Club Wash</h1>
+
+        <p class="word">
+          <span style="color: #54ade4">Angel detailing la receta🧪🚨</span>
+          <br />
+          Dando siempre el mejor trato para el cliente 👍🏻
+        </p>
+
+        <br />
+
+        <p class="word" style="text-align: start; margin: 0; padding: 0">
+          • Fajardo, Puerto Rico📍 <br />
+          • Servicios: <br />
+          • Lavado 🧽 <br />
+          • Vaccum <br />
+          • Detailing <br />
+          • cerámica🚙✨ <br />
+          • Restauración de focos💡
+        </p>
+      </header>
+
+      <div class="links">
+        <a class="link" href="https://instagram.com/_club_wash" target="_blank">
+          <img
+            class="link-logo"
+            src="/img/gram_logo.png"
+            alt="Instagram logo"
+          />
+
+          Instagram
+        </a>
+
+        <a class="link" href="tel:7873724589">
+          <img class="link-logo" src="/img/contact_logo.jpg" alt="Phone logo" />
+
+          Contact Me
+        </a>
+      </div>
+
+      <footer>
+        <p id="copyright">
+          © 2026 <span>ThriveNFC</span> | All Rights Reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      const links = document.querySelectorAll(".link");
+
+      function createSplash(x, y, container = document.body) {
+        for (let i = 0; i < 10; i++) {
+          const drop = document.createElement("span");
+
+          drop.classList.add("droplet");
+
+          const angle = Math.random() * Math.PI * 2;
+
+          const distance = 18 + Math.random() * 45;
+
+          const moveX = Math.cos(angle) * distance;
+          const moveY = Math.sin(angle) * distance;
+
+          drop.style.left = `${x}px`;
+          drop.style.top = `${y}px`;
+
+          drop.style.setProperty("--x", `${moveX}px`);
+          drop.style.setProperty("--y", `${moveY}px`);
+
+          const size = 5 + Math.random() * 12;
+
+          drop.style.width = `${size}px`;
+          drop.style.height = `${size}px`;
+
+          container.appendChild(drop);
+
+          drop.addEventListener("animationend", () => {
+            drop.remove();
+          });
+        }
+      }
+
+      // Button splash effects
+      links.forEach((link) => {
+        const handleSplash = (e) => {
+          const rect = link.getBoundingClientRect();
+
+          const x = rect.left + rect.width / 2;
+          const y = rect.top + rect.height / 2;
+
+          createSplash(x, y, document.body);
+        };
+
+        link.addEventListener("click", handleSplash);
+
+        link.addEventListener("mouseenter", handleSplash);
+      });
+
+      // Splash anywhere on desktop click
+      document.addEventListener("click", (e) => {
+        createSplash(e.clientX, e.clientY, document.body);
+      });
+
+      // Splash anywhere on mobile tap
+      document.addEventListener(
+        "touchstart",
+        (e) => {
+          const touch = e.touches[0];
+
+          createSplash(touch.clientX, touch.clientY, document.body);
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
+</html>
